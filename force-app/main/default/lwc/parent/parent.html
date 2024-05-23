@@ -1,7 +1,7 @@
 <template>
   <lightning-card title="Summer '23 Maintenance">
     <lightning-button slot="actions" label="Say Hi" onclick={sayHi}></lightning-button>
-      <template if:true={account.data}>
+      <template lwc:if={account.data}>
         <div class="slds-m-around_medium">
           <p>Account Name: {name}</p>
           <p>Industry: {industry}</p>
@@ -9,9 +9,9 @@
           <p>Owner: {owner}</p>
         </div>
       </template>
-      <template if:false={account.data}>
+      <template lwc:else>
         <div class="slds-m-around_medium slds-text-color_destructive">An error occurred while retrieving data</div>
       </template>
-    <c-child></c-child>
+    <c-child lwc:ref="child"></c-child>
   </lightning-card>
 </template>
